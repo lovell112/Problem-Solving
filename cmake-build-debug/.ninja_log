@@ -1,0 +1,14 @@
+# ninja log v6
+31	1186	7799945123312543	CMakeFiles/Problems.dir/Hackerrank/src/RoadsAndLibraries.cpp.obj	f343152c5c7bf392
+790	1096	7809129187924594	Problems.exe	fd54f5eb6fcafa3a
+2	301	7809129624313754	build.ninja	71ff3c7b672f77e3
+4	1763	7809128275149460	CMakeFiles/Problems.dir/main.cpp.obj	6e92d608904c08ed
+9	525	7799945123101924	CMakeFiles/Problems.dir/PrefixSumArray/prefixSumArray.cpp.obj	a3fff81e31591f46
+19	2874	7799945123205808	CMakeFiles/Problems.dir/Hackerrank/src/MagicSquare.cpp.obj	6f05f8d659050946
+14	2596	7799945123143704	CMakeFiles/Problems.dir/Hackerrank/src/SalesByMatch.cpp.obj	dfea1a7a265f6e35
+43	2937	7804264788524280	CMakeFiles/Problems.dir/Hackerrank/src/ClimbingTheLeaderboard.cpp.obj	cf85fce38176753d
+9	1634	7804270689826056	CMakeFiles/Problems.dir/Hackerrank/src/FrogInMaze.cpp.obj	b88e50c51a687be
+3	553	7805994208049508	CMakeFiles/Problems.dir/Hackerrank/src/ThePowerSum.cpp.obj	df7e1783d07a5562
+2	301	7809129624298630	D:/ProgrammingTechniques/Problems/cmake-build-debug/cmake_install.cmake	71ff3c7b672f77e3
+21	971	7807299069551665	CMakeFiles/Problems.dir/Hackerrank/src/CrosswordPuzzle.cpp.obj	119557ad994d4963
+3	790	7809129180051895	CMakeFiles/Problems.dir/Hackerrank/src/RecursiveDigitSum.cpp.obj	65908e2d087aaa26
