@@ -4,7 +4,17 @@
 
 #include "../includes/RecursiveDigitSum.h"
 
-int RecursiveDigitSum::superDigit(string n, int k) {
+RecursiveDigitSum::RecursiveDigitSum() {
+    cout << "Initialize Recursive Digit Sum Problem\n";
+}
+
+RecursiveDigitSum::~RecursiveDigitSum() {
+    cout << "Destroy Recursive Digit Sum Problem\n";
+}
+
+
+
+int RecursiveDigitSum::superDigit(const string& n, const int k) {
 
     vector<vector<int>> dp(10, vector<int>(10));
 

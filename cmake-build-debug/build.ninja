@@ -119,6 +119,20 @@ build CMakeFiles/Problems.dir/Hackerrank/src/RecursiveDigitSum.cpp.obj: CXX_COMP
   OBJECT_DIR = CMakeFiles\Problems.dir
   OBJECT_FILE_DIR = CMakeFiles\Problems.dir\Hackerrank\src
 
+build CMakeFiles/Problems.dir/Hackerrank/src/SimplifiedChessEngine.cpp.obj: CXX_COMPILER__Problems_unscanned_Debug D$:/ProgrammingTechniques/Problems/Hackerrank/src/SimplifiedChessEngine.cpp || cmake_object_order_depends_target_Problems
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\Problems.dir\Hackerrank\src\SimplifiedChessEngine.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Problems.dir
+  OBJECT_FILE_DIR = CMakeFiles\Problems.dir\Hackerrank\src
+
+build CMakeFiles/Problems.dir/Application/ProblemProcessor.cpp.obj: CXX_COMPILER__Problems_unscanned_Debug D$:/ProgrammingTechniques/Problems/Application/ProblemProcessor.cpp || cmake_object_order_depends_target_Problems
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\Problems.dir\Application\ProblemProcessor.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Problems.dir
+  OBJECT_FILE_DIR = CMakeFiles\Problems.dir\Application
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Problems
@@ -127,7 +141,7 @@ build CMakeFiles/Problems.dir/Hackerrank/src/RecursiveDigitSum.cpp.obj: CXX_COMP
 #############################################
 # Link the executable Problems.exe
 
-build Problems.exe: CXX_EXECUTABLE_LINKER__Problems_Debug CMakeFiles/Problems.dir/main.cpp.obj CMakeFiles/Problems.dir/PrefixSumArray/prefixSumArray.cpp.obj CMakeFiles/Problems.dir/Hackerrank/src/SalesByMatch.cpp.obj CMakeFiles/Problems.dir/Hackerrank/src/MagicSquare.cpp.obj CMakeFiles/Problems.dir/Hackerrank/src/ClimbingTheLeaderboard.cpp.obj CMakeFiles/Problems.dir/Hackerrank/src/RoadsAndLibraries.cpp.obj CMakeFiles/Problems.dir/Hackerrank/src/FrogInMaze.cpp.obj CMakeFiles/Problems.dir/Hackerrank/src/ThePowerSum.cpp.obj CMakeFiles/Problems.dir/Hackerrank/src/CrosswordPuzzle.cpp.obj CMakeFiles/Problems.dir/Hackerrank/src/RecursiveDigitSum.cpp.obj
+build Problems.exe: CXX_EXECUTABLE_LINKER__Problems_Debug CMakeFiles/Problems.dir/main.cpp.obj CMakeFiles/Problems.dir/PrefixSumArray/prefixSumArray.cpp.obj CMakeFiles/Problems.dir/Hackerrank/src/SalesByMatch.cpp.obj CMakeFiles/Problems.dir/Hackerrank/src/MagicSquare.cpp.obj CMakeFiles/Problems.dir/Hackerrank/src/ClimbingTheLeaderboard.cpp.obj CMakeFiles/Problems.dir/Hackerrank/src/RoadsAndLibraries.cpp.obj CMakeFiles/Problems.dir/Hackerrank/src/FrogInMaze.cpp.obj CMakeFiles/Problems.dir/Hackerrank/src/ThePowerSum.cpp.obj CMakeFiles/Problems.dir/Hackerrank/src/CrosswordPuzzle.cpp.obj CMakeFiles/Problems.dir/Hackerrank/src/RecursiveDigitSum.cpp.obj CMakeFiles/Problems.dir/Hackerrank/src/SimplifiedChessEngine.cpp.obj CMakeFiles/Problems.dir/Application/ProblemProcessor.cpp.obj
   CONFIG = Debug
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32

@@ -5,7 +5,7 @@
 #ifndef SALESBYMATCH_H
 #define SALESBYMATCH_H
 #include <bits/stdc++.h>
-
+#include "../../Interface/IProblem.h"
 
 // There is a large pile of socks that must be paired by color. Given an array of integers representing the color of each sock, determine how many pairs of socks with matching colors there are.
 //
@@ -28,10 +28,12 @@
 //
 // int: the number of pairs
 
-class SalesByMatch {
+class SalesByMatch : public IProblem {
     static int sockMerchant(int n, const std::vector<int>& ar);
 public:
-    static void run();
+    SalesByMatch();
+    ~SalesByMatch() override;
+    void run() override;
 };
 
 

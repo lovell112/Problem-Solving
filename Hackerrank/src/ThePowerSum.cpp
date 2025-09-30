@@ -3,6 +3,14 @@
 #include <cstdint>
 #include <numbers>
 
+ThePowerSum::ThePowerSum() {
+    cout << "Initialize The Power Sum Problem\n";
+}
+
+ThePowerSum::~ThePowerSum() {
+    cout << "Destroyed The Power Sum Problem\n";
+}
+
 int ThePowerSum::powerSum(const int x, const int n) {
 
     function<int (const int, const int, const int)> calculateWays = [&](const int origin, const int degree, const int current) -> int {

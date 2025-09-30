@@ -1,3 +1,4 @@
+#include "Application/ProblemProcessor.h"
 #include "PrefixSumArray/prefixSumArray.h"
 #include "Hackerrank/includes/SalesByMatch.h"
 #include "Hackerrank/includes/ClimbingTheLeaderboard.h"
@@ -7,6 +8,7 @@
 #include "Hackerrank/includes/CrosswordPuzzle.h"
 #include "Hackerrank/includes/ThePowerSum.h"
 #include "Hackerrank/includes/RecursiveDigitSum.h"
+#include "Hackerrank/includes/SimplifiedChessEngine.h"
 
 #include <iostream>
 #include <fstream>
@@ -17,16 +19,11 @@ void runSumLeftToRight();
 void runCalculateAreaRectangle();
 
 int main() {
-    // runSumLeftToRight();
-    // runCalculateAreaRectangle();
-    // SalesByMatch::run();
-    // MagicSquare::run();
-    // ClimbingTheLeaderboard::run();
-    // RoadsAndLibraries::run();
-    // FrogInMaze::run();
-    // ThePowerSum::run();
-    // CrosswordPuzzle::run();
-    RecursiveDigitSum::run();
+
+    // ProblemProcessor::process(new RecursiveDigitSum());
+
+    ProblemProcessor::process(new SimplifiedChessEngine());
+
     return 0;
 }
 

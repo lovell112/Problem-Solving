@@ -4,6 +4,14 @@
 
 #include "../includes/SalesByMatch.h"
 
+SalesByMatch::SalesByMatch() {
+    std::cout << "Initialize Sales By Match Problem\n";
+}
+
+SalesByMatch::~SalesByMatch() {
+    std::cout << "Destroyed Sales By Match Problem\n";
+}
+
 int SalesByMatch::sockMerchant(int n, const std::vector<int>& ar) {
     int numberOfPair = 0;
     std::vector<int> countSocks(100, 0);

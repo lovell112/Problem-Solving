@@ -1,6 +1,14 @@
 #include "../includes/MagicSquare.h"
 using Matrix = vector<vector<int>>;
 
+MagicSquare::MagicSquare() {
+    cout << "Initialize Magic Square Problem\n";
+}
+
+MagicSquare::~MagicSquare() {
+    cout << "Destroyed Magic Square Problem\n";
+}
+
 vector<Matrix> MagicSquare::initMagicSquares(Matrix s){
 
     vector<Matrix> permutations;

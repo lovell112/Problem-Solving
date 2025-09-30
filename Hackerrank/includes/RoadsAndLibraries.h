@@ -10,13 +10,16 @@
 #include <vector>
 #include <fstream>
 #include <functional>
+#include "../../Interface/IProblem.h"
 using namespace std;
 
 
-class RoadsAndLibraries {
+class RoadsAndLibraries : public IProblem{
     static long roadsAndLibraries(int, int, int, vector<vector<int>>);
 public:
-    static void run();
+    RoadsAndLibraries();
+    ~RoadsAndLibraries() override;
+    void run() override;
 };
 
 

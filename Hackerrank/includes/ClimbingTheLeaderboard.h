@@ -5,13 +5,16 @@
 #ifndef CLIMBINGTHELEADERBOARD_H
 #define CLIMBINGTHELEADERBOARD_H
 #include <bits/stdc++.h>
+#include "../../Interface/IProblem.h"
 using namespace std;
 
 
-class ClimbingTheLeaderboard {
+class ClimbingTheLeaderboard : public IProblem{
     static vector<int> climbingLeaderboard(vector<int>, vector<int>);
 public:
-    static void run();
+    ClimbingTheLeaderboard();
+    ~ClimbingTheLeaderboard() override;
+    void run() override;
 };
 
 

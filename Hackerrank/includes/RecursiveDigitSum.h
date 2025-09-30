@@ -11,12 +11,15 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include "../../Interface/IProblem.h"
 using namespace std;
 
-class RecursiveDigitSum {
-    static int superDigit(string, int);
+class RecursiveDigitSum : public IProblem {
+    static int superDigit(const string&, const int);
+    void run() override;
 public:
-    static void run();
+    RecursiveDigitSum();
+    ~RecursiveDigitSum() override;
 };
 
 

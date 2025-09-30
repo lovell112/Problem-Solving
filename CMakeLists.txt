@@ -21,4 +21,9 @@ add_executable(Problems main.cpp
         Hackerrank/src/CrosswordPuzzle.cpp
         Hackerrank/includes/CrosswordPuzzle.h
         Hackerrank/src/RecursiveDigitSum.cpp
-        Hackerrank/includes/RecursiveDigitSum.h)
+        Hackerrank/includes/RecursiveDigitSum.h
+        Hackerrank/src/SimplifiedChessEngine.cpp
+        Hackerrank/includes/SimplifiedChessEngine.h
+        Interface/IProblem.h
+        Application/ProblemProcessor.cpp
+        Application/ProblemProcessor.h)

@@ -4,6 +4,14 @@
 
 #include "../includes/CrosswordPuzzle.h"
 
+CrosswordPuzzle::CrosswordPuzzle() {
+    cout << "Initialize Crossword Puzzle Problem\n";
+}
+
+CrosswordPuzzle::~CrosswordPuzzle() {
+    cout << "Destroyed Crossword Puzzle Problem\n";
+}
+
 vector<string> CrosswordPuzzle::crosswordPuzzle(vector<string> crossword, string words) {
     stringstream ss(words);
     string temp;

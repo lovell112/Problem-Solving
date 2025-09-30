@@ -10,6 +10,7 @@
 #include <vector>
 #include <queue>
 #include <functional>
+#include "../../Interface/IProblem.h"
 using namespace std;
 
 struct Cell {
@@ -22,10 +23,12 @@ using Matrix = vector<vector<char>>;
 using Table = vector<vector<Cell>>;
 using Couple = pair<int, int>;
 
-class FrogInMaze {
+class FrogInMaze : IProblem {
     static float probabilityEscape(const Matrix&, const Table&, const Cell&);
 public:
-    static void run();
+    FrogInMaze();
+    ~FrogInMaze() override;
+    void run() override;
 };
 
 

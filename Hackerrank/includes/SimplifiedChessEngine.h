@@ -1,0 +1,13 @@
+//
+// Created by HP on 30/09/2025.
+//
+
+#ifndef PROBLEMS_SIMPLIFIEDCHESSENGINE_H
+#define PROBLEMS_SIMPLIFIEDCHESSENGINE_H
+
+
+class SimplifiedChessEngine {
+};
+
+
+#endif //PROBLEMS_SIMPLIFIEDCHESSENGINE_H

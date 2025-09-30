@@ -5,15 +5,18 @@
 #ifndef MAGICSQUARE_H
 #define MAGICSQUARE_H
 #include <bits/stdc++.h>
+#include "../../Interface/IProblem.h"
 using namespace std;
 
 
 
-class MagicSquare {
+class MagicSquare : public IProblem {
     static vector<vector<vector<int>>> initMagicSquares(vector<vector<int>>);
     static int formingMagicSquare(vector<vector<int>>);
 public:
-    static void run();
+    MagicSquare();
+    ~MagicSquare() override;
+    void run() override;
 };
 
 

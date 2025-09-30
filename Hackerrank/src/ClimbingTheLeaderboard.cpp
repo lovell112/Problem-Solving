@@ -4,6 +4,14 @@
 
 #include "../includes/ClimbingTheLeaderboard.h"
 
+ClimbingTheLeaderboard::ClimbingTheLeaderboard() {
+    cout << "Initialize Climbing The Leaderboard Problem\n";
+}
+
+ClimbingTheLeaderboard::~ClimbingTheLeaderboard() {
+    cout << "Destroyed Climbing The Leaderboard Problem\n";
+}
+
 
 vector<int> ClimbingTheLeaderboard::climbingLeaderboard(vector<int> ranked, vector<int> player) {
     vector<int> result;

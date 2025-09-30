@@ -12,12 +12,15 @@
 #include <map>
 #include <functional>
 #include <sstream>
+#include "../../Interface/IProblem.h"
 using namespace std;
 
-class CrosswordPuzzle {
+class CrosswordPuzzle : public IProblem {
     static vector<string> crosswordPuzzle(vector<string>, string);
 public:
-    static void run();
+    CrosswordPuzzle();
+    ~CrosswordPuzzle() override;
+    void run() override;
 };
 
 

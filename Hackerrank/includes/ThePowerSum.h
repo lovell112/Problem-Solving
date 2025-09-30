@@ -11,12 +11,15 @@
 #include <vector>
 #include <functional>
 #include <cmath>
+#include "../../Interface/IProblem.h"
 using namespace std;
 
-class ThePowerSum {
+class ThePowerSum : public IProblem {
     static int powerSum(int, int);
 public:
-    static void run();
+    ThePowerSum();
+    ~ThePowerSum() override;
+    void run() override;
 };
 
 

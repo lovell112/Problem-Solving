@@ -4,6 +4,14 @@
 
 #include "../includes/RoadsAndLibraries.h"
 
+RoadsAndLibraries::RoadsAndLibraries() {
+    cout << "Initialize Roads And Libraries Problem\n";
+}
+
+RoadsAndLibraries::~RoadsAndLibraries() {
+    cout << "Destroyed Roads And Libraries Problem\n";
+}
+
 long RoadsAndLibraries::roadsAndLibraries(int n, int c_lib, int c_road, vector<vector<int>> cities) {
 
     vector<bool> visited(n+1, false);

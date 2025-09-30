@@ -4,6 +4,14 @@
 
 #include "../includes/FrogInMaze.h"
 
+FrogInMaze::FrogInMaze() {
+    cout << "Initialize Frog In Maze Problem\n";
+}
+
+FrogInMaze::~FrogInMaze() {
+    cout << "Destroyed Frog In Maze Problem\n";
+}
+
 Cell::Cell(int row = -1, int col =  -1) : row(row), col(col) {}
 
 
