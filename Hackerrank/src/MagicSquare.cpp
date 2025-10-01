@@ -112,7 +112,7 @@ int MagicSquare::formingMagicSquare(vector<vector<int> > s) {
                 localCost += abs(s[i][j] - permutation[i][j]);
             }
         }
-        cout << localCost << endl;
+        // cout << localCost << endl;
         minCost = min(minCost, localCost);
     }
 

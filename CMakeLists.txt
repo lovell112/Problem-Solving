@@ -26,4 +26,6 @@ add_executable(Problems main.cpp
         Hackerrank/includes/SimplifiedChessEngine.h
         Interface/IProblem.h
         Application/ProblemProcessor.cpp
-        Application/ProblemProcessor.h)
+        Application/ProblemProcessor.h
+        Upcoder/src/Trigonometry.cpp
+        Upcoder/includes/Trigonometry.h)

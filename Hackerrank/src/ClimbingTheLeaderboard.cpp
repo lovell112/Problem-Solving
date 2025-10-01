@@ -41,7 +41,7 @@ vector<int> ClimbingTheLeaderboard::climbingLeaderboard(vector<int> ranked, vect
 
 void ClimbingTheLeaderboard::run() {
 
-    ifstream reader("cmake-build-debug\\Datas\\climbing_the_leaderboard.txt");
+    ifstream reader("Datas\\climbing_the_leaderboard.txt");
     ofstream writer("Records\\climbing_the_leaderboard.txt");
     if (!reader.is_open())
         cerr << "The input path is invalid\n";

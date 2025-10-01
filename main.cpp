@@ -13,6 +13,8 @@
 #include <iostream>
 #include <fstream>
 
+#include "Upcoder/includes/Trigonometry.h"
+
 using namespace std;
 
 void runSumLeftToRight();
@@ -20,9 +22,21 @@ void runCalculateAreaRectangle();
 
 int main() {
 
+    // ProblemProcessor::process(new ClimbingTheLeaderboard());
+    //
+    // ProblemProcessor::process(new MagicSquare());
+    //
     // ProblemProcessor::process(new RecursiveDigitSum());
-
+    //
+    // ProblemProcessor::process(new RoadsAndLibraries());
+    //
+    // ProblemProcessor::process(new ThePowerSum());
+    //
+    // ProblemProcessor::process(new RecursiveDigitSum());
+    //
     ProblemProcessor::process(new SimplifiedChessEngine());
+
+    // ProblemProcessor::process(new Trigonometry());
 
     return 0;
 }
