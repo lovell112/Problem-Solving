@@ -28,4 +28,6 @@ add_executable(Problems main.cpp
         Application/ProblemProcessor.cpp
         Application/ProblemProcessor.h
         Upcoder/src/Trigonometry.cpp
-        Upcoder/includes/Trigonometry.h)
+        Upcoder/includes/Trigonometry.h
+        Hackerrank/src/PasswordCracker.cpp
+        Hackerrank/includes/PasswordCracker.h)

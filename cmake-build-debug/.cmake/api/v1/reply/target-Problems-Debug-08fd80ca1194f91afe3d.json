@@ -64,7 +64,8 @@
 				17,
 				19,
 				22,
-				24
+				24,
+				26
 			]
 		}
 	],
@@ -109,7 +110,8 @@
 				17,
 				19,
 				22,
-				24
+				24,
+				26
 			]
 		},
 		{
@@ -128,7 +130,8 @@
 				20,
 				21,
 				23,
-				25
+				25,
+				27
 			]
 		}
 	],
@@ -275,6 +278,17 @@
 		{
 			"backtrace" : 1,
 			"path" : "Upcoder/includes/Trigonometry.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Hackerrank/src/PasswordCracker.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Hackerrank/includes/PasswordCracker.h",
 			"sourceGroupIndex" : 1
 		}
 	],
