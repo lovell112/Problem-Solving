@@ -14,6 +14,7 @@
 #include <fstream>
 
 #include "Hackerrank/includes/PasswordCracker.h"
+#include "Hackerrank/includes/StoneDivision.h"
 #include "Upcoder/includes/Trigonometry.h"
 
 using namespace std;
@@ -35,12 +36,13 @@ int main() {
 
     // ProblemProcessor::process(new RecursiveDigitSum());
 
-    ProblemProcessor::process(new SimplifiedChessEngine());
+    // ProblemProcessor::process(new SimplifiedChessEngine());
 
     // ProblemProcessor::process(new Trigonometry());
 
     // ProblemProcessor::process(new PasswordCracker());
 
+    ProblemProcessor::process(new StoneDivision());
     return 0;
 }
 

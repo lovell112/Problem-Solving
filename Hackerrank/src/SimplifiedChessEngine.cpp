@@ -270,50 +270,280 @@ SimplifiedChessEngine::~SimplifiedChessEngine() {
 //
 // }
 
-string SimplifiedChessEngine::simplifiedChessEngine(vector<vector<char> > &whites, vector<vector<char> > &blacks, int move) {
-    for (auto& black : blacks)
-        black[0] += 32;
+// string SimplifiedChessEngine::simplifiedChessEngine(vector<vector<char> > &whites, vector<vector<char> > &blacks, int move) {
+//     for (auto& black : blacks)
+//         black[0] += 32;
+//
+//     function<bool ()> isBlackQueenDie = [&]() ->bool {
+//         for (const auto& black : blacks)
+//             if (black[0] == 'q' && black[1] == 'x' && black[2] == 'x')
+//                 return true;
+//         return false;
+//     };
+//
+//     function<bool (const vector<char>&)> isWhite = [&](const vector<char>& piece) {
+//         if (piece[0] >= 'A' && piece[0] <= 'Z')
+//             return true;
+//         return false;
+//     };
+//
+//     function<vector<pair<char, char>>(const vector<char>&)> generateMoves =
+//         [&](const vector<char>& piece) -> vector<pair<char, char>> {
+//
+//         vector<pair<char, char>> res;
+//         bool isWhitePiece = isupper(piece[0]);
+//
+//         // Helper: check what's at a position
+//         // Returns: 0=empty, 1=same color, 2=opponent
+//         auto checkPosition = [&](char col, char row) -> int {
+//             if (isWhitePiece) {
+//                 // White piece checking
+//                 for (const auto& w : whites) {
+//                     if (w[1] == col && w[2] == row) return 1; // Same color
+//                 }
+//                 for (const auto& b : blacks) {
+//                     if (b[1] == col && b[2] == row) return 2; // Opponent
+//                 }
+//             } else {
+//                 // Black piece checking
+//                 for (const auto& b : blacks) {
+//                     if (b[1] == col && b[2] == row) return 1; // Same color
+//                 }
+//                 for (const auto& w : whites) {
+//                     if (w[1] == col && w[2] == row) return 2; // Opponent
+//                 }
+//             }
+//             return 0; // Empty
+//         };
+//
+//         char col = piece[1];
+//         char row = piece[2];
+//         char type = toupper(piece[0]);
+//
+//         if (type == 'N') {
+//             // KNIGHT - independent moves, no blocking between
+//             vector<pair<int, int>> moves = {
+//                 {-2, -1}, {-1, -2}, {-2, 1}, {-1, 2},
+//                 {2, -1}, {1, -2}, {2, 1}, {1, 2}
+//             };
+//
+//             for (const auto& [dr, dc] : moves) {
+//                 char newCol = col + dc;
+//                 char newRow = row + dr;
+//
+//                 // Check bounds
+//                 if (newCol >= 'A' && newCol <= 'D' &&
+//                     newRow >= '1' && newRow <= '4') {
+//
+//                     int status = checkPosition(newCol, newRow);
+//
+//                     if (status != 1) {  // Not same color (empty or opponent)
+//                         res.push_back({newCol, newRow});
+//                     }
+//                     // Continue to next move (NOT break!)
+//                 }
+//             }
+//
+//         } else {
+//             // SLIDING PIECES (Q, R, B)
+//             vector<pair<int, int>> directions;
+//
+//             if (type == 'Q') {
+//                 directions = {
+//                     {-1, 0}, {-1, -1}, {0, -1}, {1, -1},
+//                     {1, 0}, {1, 1}, {0, 1}, {-1, 1}
+//                 };
+//             } else if (type == 'R') {
+//                 directions = {
+//                     {-1, 0}, {0, -1}, {1, 0}, {0, 1}
+//                 };
+//             } else if (type == 'B') {
+//                 directions = {
+//                     {-1, -1}, {1, -1}, {1, 1}, {-1, 1}
+//                 };
+//             }
+//
+//             for (const auto& [dr, dc] : directions) {
+//                 // Slide in this direction
+//                 for (int step = 1; step <= 4; step++) {
+//                     char newCol = col + dc * step;
+//                     char newRow = row + dr * step;
+//
+//                     // Check bounds
+//                     if (newCol < 'A' || newCol > 'D' ||
+//                         newRow < '1' || newRow > '4') {
+//                         break;  // Out of board, stop this direction
+//                     }
+//
+//                     int status = checkPosition(newCol, newRow);
+//
+//                     if (status == 1) {
+//                         // Same color - blocked, can't move here
+//                         break;  // Stop this direction
+//                     }
+//
+//                     // Can move here (empty or opponent)
+//                     res.push_back({newCol, newRow});
+//
+//                     if (status == 2) {
+//                         // Opponent - can capture, then stop
+//                         break;  // Stop this direction
+//                     }
+//
+//                     // status == 0: empty, continue sliding
+//                 }
+//             }
+//         }
+//
+//         return res;
+//     };
+//
+//     function<bool (bool, int)> canWin = [&] (bool whiteTurn, int m) -> bool {
+//         if (whiteTurn) {
+//             if (m == 0)
+//                 return false;
+//
+//             bool canBlackWin = false;
+//             for (auto& white : whites) {
+//                 auto moveWays = generateMoves(white);
+//                 for (const auto& pos : moveWays) {
+//                     pair<char, char> oldPos {white[1], white[2]};
+//                     white[1] = pos.first;
+//                     white[2] = pos.second;
+//
+//                     for (auto& black : blacks) {
+//                         if (white[1] == black[1] && white[2] == black[2]) {
+//                             black[1] = 'x';
+//                             black[2] = 'x';
+//                         }
+//                     }
+//
+//                     canBlackWin = canWin(false, m-1);
+//
+//                     for (auto& black : blacks) {
+//                         if (black[1] == 'x' && black[2] == 'x') {
+//                             black[1] = white[1];
+//                             black[2] = white[2];
+//                         }
+//                     }
+//
+//                     white[1] = oldPos.first;
+//                     white[2] = oldPos.second;
+//                 }
+//             }
+//             if (canBlackWin)
+//                 return false;
+//             return true;
+//         } else {
+//             if (m == 0) {
+//                 if (isBlackQueenDie())
+//                     return false;
+//                 return true;
+//             }
+//
+//             bool canWhiteWin = true;
+//             for (auto& black : blacks) {
+//
+//                 auto moveWays = generateMoves(black);
+//
+//                 for (auto& pos : moveWays) {
+//                     pair<char, char> temp {black[1], black[2]};
+//                     black[1] = pos.first;
+//                     black[2] = pos.second;
+//
+//                     for (auto& white : whites) {
+//                         if (white[1] == black[1] && white[2] == black[2]) {
+//                             white[1] = 'x';
+//                             white[2] = 'x';
+//                         }
+//                     }
+//
+//                     canWhiteWin = canWin(true, m-1);
+//
+//                     for (auto& white : whites) {
+//                         if (white[1] == 'x' && white[2] == 'x') {
+//                             white[1] = black[1];
+//                             white[2] = black[2];
+//                         }
+//                     }
+//
+//                     black[1] = temp.first;
+//                     black[2] = temp.second;
+//                 }
+//
+//             }
+//
+//             if (canWhiteWin)
+//                 return false;
+//             return true;
+//
+//         }
+//     } ;
+//
+//     return canWin(true, move) ? "YES" : "NO";
+// }
 
-    function<bool ()> isBlackQueenDie = [&]() ->bool {
-        for (const auto& black : blacks)
-            if (black[0] == 'q' && black[1] == 'x' && black[2] == 'x')
-                return true;
-        return false;
+string SimplifiedChessEngine::simplifiedChessEngine(vector<vector<char>>& whites, vector<vector<char>>& blacks, int moves) {
+    // Convert black pieces to lowercase
+    for (auto& black : blacks) {
+        black[0] = tolower(black[0]);
+    }
+
+    // NO MEMOIZATION!
+
+    // Helper functions giữ nguyên...
+    function<bool(const vector<char>&)> isWhite = [](const vector<char>& piece) -> bool {
+        return isupper(piece[0]);
     };
 
-    function<bool (const vector<char>&)> isWhite = [&](const vector<char>& piece) {
-        if (piece[0] >= 'A' && piece[0] <= 'Z')
+    function<bool(char)> isQueenCaptured = [&](char queen) -> bool {
+        if (queen == 'Q') {
+            for (const auto& w : whites) {
+                if (w[0] == 'Q' && w[1] != 'x') {
+                    return false;
+                }
+            }
             return true;
-        return false;
+        } else {
+            for (const auto& b : blacks) {
+                if (b[0] == 'q' && b[1] != 'x') {
+                    return false;
+                }
+            }
+            return true;
+        }
     };
 
     function<vector<pair<char, char>>(const vector<char>&)> generateMoves =
         [&](const vector<char>& piece) -> vector<pair<char, char>> {
 
         vector<pair<char, char>> res;
+
+        if (piece[1] == 'x') {
+            return res; // Captured piece
+        }
+
         bool isWhitePiece = isupper(piece[0]);
 
         // Helper: check what's at a position
         // Returns: 0=empty, 1=same color, 2=opponent
         auto checkPosition = [&](char col, char row) -> int {
             if (isWhitePiece) {
-                // White piece checking
                 for (const auto& w : whites) {
-                    if (w[1] == col && w[2] == row) return 1; // Same color
+                    if (w[1] == col && w[2] == row) return 1;
                 }
                 for (const auto& b : blacks) {
-                    if (b[1] == col && b[2] == row) return 2; // Opponent
+                    if (b[1] == col && b[2] == row) return 2;
                 }
             } else {
-                // Black piece checking
                 for (const auto& b : blacks) {
-                    if (b[1] == col && b[2] == row) return 1; // Same color
+                    if (b[1] == col && b[2] == row) return 1;
                 }
                 for (const auto& w : whites) {
-                    if (w[1] == col && w[2] == row) return 2; // Opponent
+                    if (w[1] == col && w[2] == row) return 2;
                 }
             }
-            return 0; // Empty
+            return 0;
         };
 
         char col = piece[1];
@@ -321,26 +551,24 @@ string SimplifiedChessEngine::simplifiedChessEngine(vector<vector<char> > &white
         char type = toupper(piece[0]);
 
         if (type == 'N') {
-            // KNIGHT - independent moves, no blocking between
-            vector<pair<int, int>> moves = {
+            // KNIGHT - independent moves
+            vector<pair<int, int>> knightMoves = {
                 {-2, -1}, {-1, -2}, {-2, 1}, {-1, 2},
                 {2, -1}, {1, -2}, {2, 1}, {1, 2}
             };
 
-            for (const auto& [dr, dc] : moves) {
+            for (const auto& [dr, dc] : knightMoves) {
                 char newCol = col + dc;
                 char newRow = row + dr;
 
-                // Check bounds
                 if (newCol >= 'A' && newCol <= 'D' &&
                     newRow >= '1' && newRow <= '4') {
 
                     int status = checkPosition(newCol, newRow);
 
-                    if (status != 1) {  // Not same color (empty or opponent)
+                    if (status != 1) {
                         res.push_back({newCol, newRow});
                     }
-                    // Continue to next move (NOT break!)
                 }
             }
 
@@ -364,33 +592,26 @@ string SimplifiedChessEngine::simplifiedChessEngine(vector<vector<char> > &white
             }
 
             for (const auto& [dr, dc] : directions) {
-                // Slide in this direction
                 for (int step = 1; step <= 4; step++) {
                     char newCol = col + dc * step;
                     char newRow = row + dr * step;
 
-                    // Check bounds
                     if (newCol < 'A' || newCol > 'D' ||
                         newRow < '1' || newRow > '4') {
-                        break;  // Out of board, stop this direction
+                        break;
                     }
 
                     int status = checkPosition(newCol, newRow);
 
                     if (status == 1) {
-                        // Same color - blocked, can't move here
-                        break;  // Stop this direction
+                        break;
                     }
 
-                    // Can move here (empty or opponent)
                     res.push_back({newCol, newRow});
 
                     if (status == 2) {
-                        // Opponent - can capture, then stop
-                        break;  // Stop this direction
+                        break;
                     }
-
-                    // status == 0: empty, continue sliding
                 }
             }
         }
@@ -398,89 +619,104 @@ string SimplifiedChessEngine::simplifiedChessEngine(vector<vector<char> > &white
         return res;
     };
 
-    function<bool (bool, int)> canWin = [&] (bool whiteTurn, int m) -> bool {
-        if (whiteTurn) {
-            if (m == 0)
-                return false;
 
-            bool canBlackWin = false;
-            for (auto& white : whites) {
-                auto moveWays = generateMoves(white);
-                for (const auto& pos : moveWays) {
-                    pair<char, char> oldPos {white[1], white[2]};
-                    white[1] = pos.first;
-                    white[2] = pos.second;
+    // Minimax WITHOUT memoization
+    function<bool(int, bool)> minimax = [&](int m, bool isWhiteTurn) -> bool {
+        // NO CACHE CHECK!
 
-                    for (auto& black : blacks) {
-                        if (white[1] == black[1] && white[2] == black[2]) {
-                            black[1] = 'x';
-                            black[2] = 'x';
+        // Base cases
+        if (isQueenCaptured('q')) return true;
+        if (isQueenCaptured('Q')) return false;
+        if (m == 0) return !isWhiteTurn;
+
+        if (isWhiteTurn) {
+            // White's turn
+            for (auto& whitePiece : whites) {
+                if (whitePiece[1] == 'x') continue;
+
+                auto possibleMoves = generateMoves(whitePiece);
+
+                for (const auto& [newCol, newRow] : possibleMoves) {
+                    // Save state
+                    char oldCol = whitePiece[1];
+                    char oldRow = whitePiece[2];
+                    vector<char> capturedBlack;
+                    int capturedIdx = -1;
+
+                    // Make move
+                    whitePiece[1] = newCol;
+                    whitePiece[2] = newRow;
+
+                    for (int i = 0; i < blacks.size(); i++) {
+                        if (blacks[i][1] == newCol && blacks[i][2] == newRow) {
+                            capturedBlack = blacks[i];
+                            capturedIdx = i;
+                            blacks[i][1] = blacks[i][2] = 'x';
+                            break;
                         }
                     }
 
-                    canBlackWin = canWin(false, m-1);
+                    // Recurse - WILL RECALCULATE SAME STATES!
+                    bool blackCanDefend = minimax(m - 1, false);
 
-                    for (auto& black : blacks) {
-                        if (black[1] == 'x' && black[2] == 'x') {
-                            black[1] = white[1];
-                            black[2] = white[2];
-                        }
+                    // Unmake move
+                    whitePiece[1] = oldCol;
+                    whitePiece[2] = oldRow;
+                    if (capturedIdx != -1) {
+                        blacks[capturedIdx] = capturedBlack;
                     }
 
-                    white[1] = oldPos.first;
-                    white[2] = oldPos.second;
+                    if (!blackCanDefend) {
+                        return true;  // NO CACHE SAVE
+                    }
                 }
             }
-            if (canBlackWin)
-                return false;
-            return true;
+            return false;
+
         } else {
-            if (m == 0) {
-                if (isBlackQueenDie())
-                    return false;
-                return true;
-            }
+            // Black's turn - similar logic
+            for (auto& blackPiece : blacks) {
+                if (blackPiece[1] == 'x') continue;
 
-            bool canWhiteWin = true;
-            for (auto& black : blacks) {
+                auto possibleMoves = generateMoves(blackPiece);
 
-                auto moveWays = generateMoves(black);
+                for (const auto& [newCol, newRow] : possibleMoves) {
+                    char oldCol = blackPiece[1];
+                    char oldRow = blackPiece[2];
+                    vector<char> capturedWhite;
+                    int capturedIdx = -1;
 
-                for (auto& pos : moveWays) {
-                    pair<char, char> temp {black[1], black[2]};
-                    black[1] = pos.first;
-                    black[2] = pos.second;
+                    blackPiece[1] = newCol;
+                    blackPiece[2] = newRow;
 
-                    for (auto& white : whites) {
-                        if (white[1] == black[1] && white[2] == black[2]) {
-                            white[1] = 'x';
-                            white[2] = 'x';
+                    for (int i = 0; i < whites.size(); i++) {
+                        if (whites[i][1] == newCol && whites[i][2] == newRow) {
+                            capturedWhite = whites[i];
+                            capturedIdx = i;
+                            whites[i][1] = whites[i][2] = 'x';
+                            break;
                         }
                     }
 
-                    canWhiteWin = canWin(true, m-1);
+                    bool whiteCanWin = minimax(m - 1, true);
 
-                    for (auto& white : whites) {
-                        if (white[1] == 'x' && white[2] == 'x') {
-                            white[1] = black[1];
-                            white[2] = black[2];
-                        }
+                    blackPiece[1] = oldCol;
+                    blackPiece[2] = oldRow;
+                    if (capturedIdx != -1) {
+                        whites[capturedIdx] = capturedWhite;
                     }
 
-                    black[1] = temp.first;
-                    black[2] = temp.second;
+                    if (!whiteCanWin) {
+                        return false;
+                    }
                 }
-
             }
-
-            if (canWhiteWin)
-                return false;
             return true;
-
         }
-    } ;
+    };
 
-    return canWin(true, move) ? "YES" : "NO";
+    bool whiteWins = minimax(moves, true);
+    return whiteWins ? "YES" : "NO";
 }
 
 void SimplifiedChessEngine::run() {

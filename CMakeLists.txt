@@ -30,4 +30,6 @@ add_executable(Problems main.cpp
         Upcoder/src/Trigonometry.cpp
         Upcoder/includes/Trigonometry.h
         Hackerrank/src/PasswordCracker.cpp
-        Hackerrank/includes/PasswordCracker.h)
+        Hackerrank/includes/PasswordCracker.h
+        Hackerrank/src/StoneDivision.cpp
+        Hackerrank/includes/StoneDivision.h)
