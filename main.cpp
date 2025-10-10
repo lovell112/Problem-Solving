@@ -13,6 +13,7 @@
 #include <iostream>
 #include <fstream>
 
+#include "Hackerrank/includes/KFactorization.h"
 #include "Hackerrank/includes/PasswordCracker.h"
 #include "Hackerrank/includes/StoneDivision.h"
 #include "Upcoder/includes/Trigonometry.h"
@@ -42,7 +43,9 @@ int main() {
 
     // ProblemProcessor::process(new PasswordCracker());
 
-    ProblemProcessor::process(new StoneDivision());
+    // ProblemProcessor::process(new StoneDivision());
+
+    ProblemProcessor::process(new KFactorization());
     return 0;
 }
 
